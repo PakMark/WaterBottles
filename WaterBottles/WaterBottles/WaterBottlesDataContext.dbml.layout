@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="WaterBottlesDataContext">
+  <DataContextMoniker Name="/WaterBottlesDataContextDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0d6e89f4-75c9-46b0-9521-3e1831072460" absoluteBounds="3.875, 0.75, 2, 1.7708968098958333">
+      <DataClassMoniker Name="/WaterBottlesDataContextDataContext/Bottle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a84e7eb3-2f3a-4ada-b7bb-2b2c47f64149" absoluteBounds="3.89, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="12132d60-4cae-408c-a4bc-90ae691fcb83" absoluteBounds="1.125, 1.125, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/WaterBottlesDataContextDataContext/BottleType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="238aed99-b77a-42b8-a7c4-16ee9751a7f9" absoluteBounds="1.1400000000000001, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4feaf8a5-f6f3-4b0c-8c80-c0c7dc13b2a0" absoluteBounds="6.625, 1, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/WaterBottlesDataContextDataContext/BottlePhoto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81f42eca-0cff-46a5-98ab-748520329727" absoluteBounds="6.64, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 1.72199625651042); (3.875 : 1.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/WaterBottlesDataContextDataContext/BottleType/BottleType_Bottle" />
+      <nodes>
+        <classShapeMoniker Id="12132d60-4cae-408c-a4bc-90ae691fcb83" />
+        <classShapeMoniker Id="0d6e89f4-75c9-46b0-9521-3e1831072460" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 1.69314697265625); (6.625 : 1.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/WaterBottlesDataContextDataContext/Bottle/Bottle_BottlePhoto" />
+      <nodes>
+        <classShapeMoniker Id="0d6e89f4-75c9-46b0-9521-3e1831072460" />
+        <classShapeMoniker Id="4feaf8a5-f6f3-4b0c-8c80-c0c7dc13b2a0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

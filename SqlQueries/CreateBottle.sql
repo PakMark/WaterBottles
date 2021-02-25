@@ -1,0 +1,14 @@
+CREATE TABLE Bottle
+(
+	[BottleId][INT] IDENTITY(1, 1) NOT NULL,
+	[TypeId][INT] NOT NULL,
+	[Description][NVARCHAR](128) NOT NULL,
+	[Quantity][INT] NOT NULL,
+	[QuantityOfFull][INT] NOT NULL,
+	
+	CONSTRAINT PK_BottleId PRIMARY KEY (BottleId),
+	CONSTRAINT FK_BottlesToBottleType FOREIGN KEY (TypeId)
+		REFERENCES BottleType
+	ON DELETE CASCADE
+	ON UPDATE NO ACTION
+)
