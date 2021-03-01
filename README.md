@@ -39,6 +39,10 @@
 <div align="center">
     <img src="Screenshots\5.png" />
 </div>
+<div align="center">
+    <img src="Screenshots\6.png" />
+</div>
+
 
 ## Цели
 

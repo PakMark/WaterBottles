@@ -39,9 +39,7 @@ namespace WaterBottles
             {
                 var photoUrls = context.BottlePhoto.ToList();
                 for (int i = 0; i < PictureBoxes.Count; i++)
-                {
                     PictureBoxes[i].ImageLocation = photoUrls[i].PhotoUrl;
-                }
             }
         }
 
@@ -114,7 +112,7 @@ namespace WaterBottles
                 int bottleId = selectedPictureId - 1;
                 bottleDescription.Text = $"{bottles[bottleId].Description}. " +
                     $"Объем - {bottles[bottleId].BottleType.Volume} л.";
-            }   
+            }
         }
 
         /// <summary>
@@ -207,6 +205,8 @@ namespace WaterBottles
 
                     if (bottle.QuantityOfFull == 0)
                         ShowErrorMessage("В наличии нет полных бутылей!");
+                    else if (usedWaterBottles.Value == 0)
+                        ShowErrorMessage("Не выбрано количество бутылей!");
 
                     bottle.QuantityOfFull -= (int)usedWaterBottles.Value;
                     context.SubmitChanges();
@@ -237,6 +237,8 @@ namespace WaterBottles
 
                     if (bottle.QuantityOfFull == bottle.Quantity)
                         ShowErrorMessage("Все бутыли полные!");
+                    else if (addedWaterBottles.Value == 0)
+                        ShowErrorMessage("Не выбрано количество бутылей!");
 
                     bottle.QuantityOfFull += (int)addedWaterBottles.Value;
                     context.SubmitChanges();
