@@ -34,11 +34,14 @@ namespace WaterBottles
                 pictureBox4
             };
 
-            var context = new WaterBottlesDataContextDataContext(Properties.Settings.Default.WaterBottlesConnectionString);
-            var photoUrls = context.BottlePhoto.ToList();
-            for (int i = 0; i < PictureBoxes.Count; i++)
+            using (var context = new WaterBottlesDataContextDataContext(Properties.
+                Settings.Default.WaterBottlesConnectionString))
             {
-                PictureBoxes[i].ImageLocation = photoUrls[i].PhotoUrl;
+                var photoUrls = context.BottlePhoto.ToList();
+                for (int i = 0; i < PictureBoxes.Count; i++)
+                {
+                    PictureBoxes[i].ImageLocation = photoUrls[i].PhotoUrl;
+                }
             }
         }
 
@@ -55,10 +58,13 @@ namespace WaterBottles
                 label4
             };
 
-            var context = new WaterBottlesDataContextDataContext(Properties.Settings.Default.WaterBottlesConnectionString);
-            var bottles = context.Bottle.ToList();
-            for (int i = 0; i < InformationLabels.Count; i++)
-                InformationLabels[i].Text = GetBottleInformation(bottles[i]);
+            using (var context = new WaterBottlesDataContextDataContext(Properties.
+                Settings.Default.WaterBottlesConnectionString))
+            {
+                var bottles = context.Bottle.ToList();
+                for (int i = 0; i < InformationLabels.Count; i++)
+                    InformationLabels[i].Text = GetBottleInformation(bottles[i]);
+            }
         }
 
         /// <summary>
@@ -67,10 +73,13 @@ namespace WaterBottles
         /// <param name="selectedPictureId">Номер выбранной бутыли</param>
         private void UpdateInformationLabel(int selectedPictureId)
         {
-            var context = new WaterBottlesDataContextDataContext(Properties.Settings.Default.WaterBottlesConnectionString);
-            var bottles = context.Bottle.ToList();
-            int labelId = selectedPictureId - 1;
-            InformationLabels[labelId].Text = GetBottleInformation(bottles[labelId]);
+            using (var context = new WaterBottlesDataContextDataContext(Properties.
+                Settings.Default.WaterBottlesConnectionString))
+            {
+                var bottles = context.Bottle.ToList();
+                int labelId = selectedPictureId - 1;
+                InformationLabels[labelId].Text = GetBottleInformation(bottles[labelId]);
+            }
         }
 
         /// <summary>
@@ -98,11 +107,14 @@ namespace WaterBottles
         /// <param name="selectedPictureId">Номер выбранной бутыли</param>
         private void SetBottleDescription(int selectedPictureId)
         {
-            var context = new WaterBottlesDataContextDataContext(Properties.Settings.Default.WaterBottlesConnectionString);
-            var bottles = context.Bottle.ToList();
-            int bottleId = selectedPictureId - 1;
-            bottleDescription.Text = $"{bottles[bottleId].Description}. " +
-                $"Объем - {bottles[bottleId].BottleType.Volume} л.";
+            using (var context = new WaterBottlesDataContextDataContext(Properties.
+                Settings.Default.WaterBottlesConnectionString))
+            {
+                var bottles = context.Bottle.ToList();
+                int bottleId = selectedPictureId - 1;
+                bottleDescription.Text = $"{bottles[bottleId].Description}. " +
+                    $"Объем - {bottles[bottleId].BottleType.Volume} л.";
+            }   
         }
 
         /// <summary>
@@ -154,9 +166,12 @@ namespace WaterBottles
         /// <param name="pictureId">Id выбранной бутыли</param>
         private void SetNumericUsedWaterBottles(int pictureId)
         {
-            var context = new WaterBottlesDataContextDataContext(Properties.Settings.Default.WaterBottlesConnectionString);
-            var bottle = context.Bottle.Where(x => x.BottleId == pictureId).First();
-            usedWaterBottles.Maximum = bottle.QuantityOfFull;
+            using (var context = new WaterBottlesDataContextDataContext(Properties.
+                Settings.Default.WaterBottlesConnectionString))
+            {
+                var bottle = context.Bottle.Where(x => x.BottleId == pictureId).First();
+                usedWaterBottles.Maximum = bottle.QuantityOfFull;
+            }
         }
 
         /// <summary>
@@ -166,9 +181,12 @@ namespace WaterBottles
         /// <param name="pictureId">Id выбранной бутыли</param>
         private void SetNumericAddedWaterBottles(int pictureId)
         {
-            var context = new WaterBottlesDataContextDataContext(Properties.Settings.Default.WaterBottlesConnectionString);
-            var bottle = context.Bottle.Where(x => x.BottleId == pictureId).First();
-            addedWaterBottles.Maximum = bottle.Quantity - bottle.QuantityOfFull;
+            using (var context = new WaterBottlesDataContextDataContext(Properties.
+                Settings.Default.WaterBottlesConnectionString))
+            {
+                var bottle = context.Bottle.Where(x => x.BottleId == pictureId).First();
+                addedWaterBottles.Maximum = bottle.Quantity - bottle.QuantityOfFull;
+            }
         }
 
         /// <summary>
@@ -182,15 +200,17 @@ namespace WaterBottles
                 ShowErrorMessage("Нет выбранной бутыли!");
             else
             {
-                var context = new WaterBottlesDataContextDataContext(Properties.Settings.Default.WaterBottlesConnectionString);
-                var bottle = context.Bottle.Where(x => x.BottleId == SelectedPictureId).First();
+                using (var context = new WaterBottlesDataContextDataContext(Properties.
+                    Settings.Default.WaterBottlesConnectionString))
+                {
+                    var bottle = context.Bottle.Where(x => x.BottleId == SelectedPictureId).First();
 
-                if (bottle.QuantityOfFull == 0)
-                    ShowErrorMessage("В наличии нет полных бутылей!");
+                    if (bottle.QuantityOfFull == 0)
+                        ShowErrorMessage("В наличии нет полных бутылей!");
 
-                bottle.QuantityOfFull -= (int)usedWaterBottles.Value;
-                context.SubmitChanges();
-
+                    bottle.QuantityOfFull -= (int)usedWaterBottles.Value;
+                    context.SubmitChanges();
+                }
                 UpdateInformationLabel(SelectedPictureId);
 
                 SetNumericUsedWaterBottles(SelectedPictureId);
@@ -210,15 +230,17 @@ namespace WaterBottles
                 ShowErrorMessage("Нет выбранной бутыли!");
             else
             {
-                var context = new WaterBottlesDataContextDataContext(Properties.Settings.Default.WaterBottlesConnectionString);
-                var bottle = context.Bottle.Where(x => x.BottleId == SelectedPictureId).First();
+                using (var context = new WaterBottlesDataContextDataContext(Properties.
+                    Settings.Default.WaterBottlesConnectionString))
+                {
+                    var bottle = context.Bottle.Where(x => x.BottleId == SelectedPictureId).First();
 
-                if (bottle.QuantityOfFull == bottle.Quantity)
-                    ShowErrorMessage("Все бутыли полные!");
+                    if (bottle.QuantityOfFull == bottle.Quantity)
+                        ShowErrorMessage("Все бутыли полные!");
 
-                bottle.QuantityOfFull += (int)addedWaterBottles.Value;
-                context.SubmitChanges();
-                
+                    bottle.QuantityOfFull += (int)addedWaterBottles.Value;
+                    context.SubmitChanges();
+                }
                 UpdateInformationLabel(SelectedPictureId);
 
                 SetNumericUsedWaterBottles(SelectedPictureId);

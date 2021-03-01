@@ -8,3 +8,13 @@ C:\Users\Mark\Desktop\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBott
 C:\Users\Mark\Desktop\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBottles.csproj.CoreCompileInputs.cache
 C:\Users\Mark\Desktop\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBottles.exe
 C:\Users\Mark\Desktop\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBottles.pdb
+C:\Резюме\Мои проекты\WaterBottles\WaterBottles\WaterBottles\bin\Debug\WaterBottles.exe.config
+C:\Резюме\Мои проекты\WaterBottles\WaterBottles\WaterBottles\bin\Debug\WaterBottles.exe
+C:\Резюме\Мои проекты\WaterBottles\WaterBottles\WaterBottles\bin\Debug\WaterBottles.pdb
+C:\Резюме\Мои проекты\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBottles.csprojAssemblyReference.cache
+C:\Резюме\Мои проекты\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBottles.Form1.resources
+C:\Резюме\Мои проекты\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBottles.Properties.Resources.resources
+C:\Резюме\Мои проекты\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBottles.csproj.GenerateResource.cache
+C:\Резюме\Мои проекты\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBottles.csproj.CoreCompileInputs.cache
+C:\Резюме\Мои проекты\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBottles.exe
+C:\Резюме\Мои проекты\WaterBottles\WaterBottles\WaterBottles\obj\Debug\WaterBottles.pdb
